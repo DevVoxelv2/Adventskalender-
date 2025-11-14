@@ -1,0 +1,26 @@
+name: Adventskalender
+version: ${project.version}
+main: de.adventskalender.AdventskalenderPlugin
+api-version: 1.21
+author: DerGamer09
+description: Ein Adventskalender Plugin für Minecraft
+depend: [Vault]
+softdepend: [LuckPerms]
+
+commands:
+  adventskalender:
+    description: Öffne den Adventskalender
+    aliases: [ak, advent, kalender]
+    usage: /<command> [reload]
+
+permissions:
+  adventskalender.use:
+    description: Erlaubt die Nutzung des Adventskalenders
+    default: true
+  adventskalender.reload:
+    description: Erlaubt das Neuladen der Konfiguration
+    default: op
+  adventskalender.admin:
+    description: Admin-Berechtigungen
+    default: op
+

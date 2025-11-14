@@ -1,0 +1,35 @@
+# Deutsche Nachrichten
+
+prefix: "&8[&6Adventskalender&8] &r"
+
+# Allgemeine Nachrichten
+no-permission: "&cDu hast keine Berechtigung dafür!"
+player-only: "&cDieser Befehl kann nur von Spielern verwendet werden!"
+config-reloaded: "&aKonfiguration erfolgreich neu geladen!"
+language-changed: "&aSprache wurde auf {language} geändert!"
+
+# GUI Nachrichten
+gui-title: "&6&lAdventskalender &7&l2024"
+door-locked: "&cDiese Tür ist gesperrt!"
+door-already-opened: "&cDu hast diese Tür bereits geöffnet!"
+door-not-available: "&cDiese Tür ist noch nicht verfügbar!"
+door-opening: "&aÖffne Tür {day}..."
+door-opened: "&aDu hast Tür {day} geöffnet!"
+door-reward: "&aDu hast deine Belohnung erhalten!"
+
+# Tür-Zustände
+door-available: "&aKlicke zum Öffnen!"
+door-opened-state: "&aBereits geöffnet"
+door-locked-state: "&cGesperrt"
+
+# Fehlermeldungen
+error-loading-config: "&cFehler beim Laden der Konfiguration!"
+error-loading-language: "&cFehler beim Laden der Sprachdatei!"
+error-database: "&cDatenbankfehler aufgetreten!"
+error-command: "&cEin Fehler ist beim Ausführen des Befehls aufgetreten!"
+
+# Hilfe-Nachrichten
+help-header: "&6=== Adventskalender Hilfe ==="
+help-open: "&e/adventskalender &7- Öffne den Adventskalender"
+help-reload: "&e/adventskalender reload &7- Lade die Konfiguration neu"
+

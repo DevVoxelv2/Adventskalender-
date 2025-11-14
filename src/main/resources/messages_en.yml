@@ -1,0 +1,35 @@
+# English Messages
+
+prefix: "&8[&6Adventskalender&8] &r"
+
+# General Messages
+no-permission: "&cYou don't have permission to do this!"
+player-only: "&cThis command can only be used by players!"
+config-reloaded: "&aConfiguration reloaded successfully!"
+language-changed: "&aLanguage changed to {language}!"
+
+# GUI Messages
+gui-title: "&6&lAdvent Calendar &7&l2024"
+door-locked: "&cThis door is locked!"
+door-already-opened: "&cYou have already opened this door!"
+door-not-available: "&cThis door is not available yet!"
+door-opening: "&aOpening door {day}..."
+door-opened: "&aYou opened door {day}!"
+door-reward: "&aYou received your reward!"
+
+# Door States
+door-available: "&aClick to open!"
+door-opened-state: "&aAlready opened"
+door-locked-state: "&cLocked"
+
+# Error Messages
+error-loading-config: "&cError loading configuration!"
+error-loading-language: "&cError loading language file!"
+error-database: "&cDatabase error occurred!"
+error-command: "&cAn error occurred while executing the command!"
+
+# Help Messages
+help-header: "&6=== Adventskalender Help ==="
+help-open: "&e/adventskalender &7- Open the advent calendar"
+help-reload: "&e/adventskalender reload &7- Reload the configuration"
+

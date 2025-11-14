@@ -1,0 +1,35 @@
+# Messages Français
+
+prefix: "&8[&6Calendrier de l'Avent&8] &r"
+
+# Messages Généraux
+no-permission: "&cVous n'avez pas la permission de faire cela!"
+player-only: "&cCette commande ne peut être utilisée que par les joueurs!"
+config-reloaded: "&aConfiguration rechargée avec succès!"
+language-changed: "&aLangue changée en {language}!"
+
+# Messages GUI
+gui-title: "&6&lCalendrier de l'Avent &7&l2024"
+door-locked: "&cCette porte est verrouillée!"
+door-already-opened: "&cVous avez déjà ouvert cette porte!"
+door-not-available: "&cCette porte n'est pas encore disponible!"
+door-opening: "&aOuverture de la porte {day}..."
+door-opened: "&aVous avez ouvert la porte {day}!"
+door-reward: "&aVous avez reçu votre récompense!"
+
+# États des Portes
+door-available: "&aCliquez pour ouvrir!"
+door-opened-state: "&aDéjà ouvert"
+door-locked-state: "&cVerrouillé"
+
+# Messages d'Erreur
+error-loading-config: "&cErreur lors du chargement de la configuration!"
+error-loading-language: "&cErreur lors du chargement du fichier de langue!"
+error-database: "&cUne erreur de base de données s'est produite!"
+error-command: "&cUne erreur s'est produite lors de l'exécution de la commande!"
+
+# Messages d'Aide
+help-header: "&6=== Aide du Calendrier de l'Avent ==="
+help-open: "&e/adventskalender &7- Ouvrir le calendrier de l'avent"
+help-reload: "&e/adventskalender reload &7- Recharger la configuration"
+
