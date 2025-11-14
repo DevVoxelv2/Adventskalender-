@@ -9,7 +9,7 @@ config-reloaded: "&aConfiguration reloaded successfully!"
 language-changed: "&aLanguage changed to {language}!"
 
 # GUI Messages
-gui-title: "&6&lAdvent Calendar &7&l2024"
+gui-title: "&6&lAdvent Calendar &7&l2025"
 door-locked: "&cThis door is locked!"
 door-already-opened: "&cYou have already opened this door!"
 door-not-available: "&cThis door is not available yet!"

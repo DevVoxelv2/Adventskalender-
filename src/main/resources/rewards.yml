@@ -1,0 +1,99 @@
+# Belohnungen für den Adventskalender
+# Format: tag: rewards (Liste von Befehlen)
+
+1:
+  rewards:
+    - "give {player} diamond 5"
+
+2:
+  rewards:
+    - "give {player} gold_ingot 10"
+
+3:
+  rewards:
+    - "give {player} iron_block 1"
+
+4:
+  rewards:
+    - "give {player} stone 64"
+
+5:
+  rewards:
+    - "give {player} oak_log 32"
+
+6:
+  rewards:
+    - "give {player} apple 16"
+
+7:
+  rewards:
+    - "give {player} golden_apple 8"
+
+8:
+  rewards:
+    - "give {player} emerald 4"
+
+9:
+  rewards:
+    - "give {player} diamond 2"
+
+10:
+  rewards:
+    - "give {player} netherite_ingot 1"
+
+11:
+  rewards:
+    - "give {player} bread 16"
+
+12:
+  rewards:
+    - "give {player} coal 32"
+
+13:
+  rewards:
+    - "give {player} gravel 64"
+
+14:
+  rewards:
+    - "give {player} sand 16"
+
+15:
+  rewards:
+    - "give {player} glass 8"
+
+16:
+  rewards:
+    - "give {player} iron_ore 4"
+
+17:
+  rewards:
+    - "give {player} gold_ore 2"
+
+18:
+  rewards:
+    - "give {player} diamond_ore 1"
+
+19:
+  rewards:
+    - "give {player} leather 16"
+
+20:
+  rewards:
+    - "give {player} white_wool 8"
+
+21:
+  rewards:
+    - "give {player} torch 4"
+
+22:
+  rewards:
+    - "give {player} torch 2"
+
+23:
+  rewards:
+    - "give {player} torch 1"
+
+24:
+  rewards:
+    - "give {player} diamond 10"
+

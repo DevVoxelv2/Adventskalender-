@@ -3,6 +3,12 @@
 # Spracheinstellung (en, de, fr, etc.)
 language: en
 
+# Jahr für den Adventskalender (beginnt am 01.12.{year})
+year: 2025
+
+# Zeitzone für die Datumsprüfung
+timezone: Europe/Berlin
+
 # Datenbank-Einstellungen
 database:
   type: sqlite # sqlite oder mysql
@@ -14,207 +20,160 @@ database:
 
 # GUI-Einstellungen
 gui:
-  title: "&6&lAdventskalender &7&l2024"
+  title: "&6&lAdventskalender &7&l2025"
   size: 54 # 9, 18, 27, 36, 45, 54
   background-item: "GRAY_STAINED_GLASS_PANE"
   background-name: "&r"
 
 # Tür-Einstellungen
 doors:
-  # Format: tag: item, name, lore (getrennt durch |)
+  # Format: tag: item, name, lore
   # tag ist die Türnummer (1-24)
+  # Belohnungen werden aus rewards.yml geladen
   1:
     item: "GREEN_WOOL"
     name: "&a&lTag 1"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e5 Diamanten"
-    rewards:
-      - "give {player} diamond 5"
   2:
     item: "GREEN_WOOL"
     name: "&a&lTag 2"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e10 Gold"
-    rewards:
-      - "give {player} gold_ingot 10"
   3:
     item: "GREEN_WOOL"
     name: "&a&lTag 3"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e1 Eisenblock"
-    rewards:
-      - "give {player} iron_block 1"
   4:
     item: "GREEN_WOOL"
     name: "&a&lTag 4"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e64 Steine"
-    rewards:
-      - "give {player} stone 64"
   5:
     item: "GREEN_WOOL"
     name: "&a&lTag 5"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e32 Eichenholz"
-    rewards:
-      - "give {player} oak_log 32"
   6:
     item: "GREEN_WOOL"
     name: "&a&lTag 6"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e16 Apfel"
-    rewards:
-      - "give {player} apple 16"
   7:
     item: "GREEN_WOOL"
     name: "&a&lTag 7"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e8 Goldäpfel"
-    rewards:
-      - "give {player} golden_apple 8"
   8:
     item: "GREEN_WOOL"
     name: "&a&lTag 8"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e4 Smaragde"
-    rewards:
-      - "give {player} emerald 4"
   9:
     item: "GREEN_WOOL"
     name: "&a&lTag 9"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e2 Diamanten"
-    rewards:
-      - "give {player} diamond 2"
   10:
     item: "GREEN_WOOL"
     name: "&a&lTag 10"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e1 Netheritbarren"
-    rewards:
-      - "give {player} netherite_ingot 1"
   11:
     item: "GREEN_WOOL"
     name: "&a&lTag 11"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e16 Brot"
-    rewards:
-      - "give {player} bread 16"
   12:
     item: "GREEN_WOOL"
     name: "&a&lTag 12"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e32 Kohle"
-    rewards:
-      - "give {player} coal 32"
   13:
     item: "GREEN_WOOL"
     name: "&a&lTag 13"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e64 Kies"
-    rewards:
-      - "give {player} gravel 64"
   14:
     item: "GREEN_WOOL"
     name: "&a&lTag 14"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e16 Sand"
-    rewards:
-      - "give {player} sand 16"
   15:
     item: "GREEN_WOOL"
     name: "&a&lTag 15"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e8 Glas"
-    rewards:
-      - "give {player} glass 8"
   16:
     item: "GREEN_WOOL"
     name: "&a&lTag 16"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e4 Eisenerz"
-    rewards:
-      - "give {player} iron_ore 4"
   17:
     item: "GREEN_WOOL"
     name: "&a&lTag 17"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e2 Golderz"
-    rewards:
-      - "give {player} gold_ore 2"
   18:
     item: "GREEN_WOOL"
     name: "&a&lTag 18"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e1 Diamanterz"
-    rewards:
-      - "give {player} diamond_ore 1"
   19:
     item: "GREEN_WOOL"
     name: "&a&lTag 19"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e16 Leder"
-    rewards:
-      - "give {player} leather 16"
   20:
     item: "GREEN_WOOL"
     name: "&a&lTag 20"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e8 Wolle"
-    rewards:
-      - "give {player} white_wool 8"
   21:
     item: "GREEN_WOOL"
     name: "&a&lTag 21"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e4 Fackeln"
-    rewards:
-      - "give {player} torch 4"
   22:
     item: "GREEN_WOOL"
     name: "&a&lTag 22"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e2 Fackeln"
-    rewards:
-      - "give {player} torch 2"
   23:
     item: "GREEN_WOOL"
     name: "&a&lTag 23"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e1 Fackel"
-    rewards:
-      - "give {player} torch 1"
   24:
     item: "GREEN_WOOL"
     name: "&a&lTag 24"
     lore:
       - "&7Klicke um zu öffnen!"
       - "&7Belohnung: &e10 Diamanten"
-    rewards:
-      - "give {player} diamond 10"
 
 # Öffnungsbedingungen
 conditions:

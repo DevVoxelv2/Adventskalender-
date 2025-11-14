@@ -2,22 +2,36 @@ package de.adventskalender.managers;
 
 import de.adventskalender.AdventskalenderPlugin;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
+import java.io.File;
 import java.util.List;
 
 public class ConfigManager {
 
     private final AdventskalenderPlugin plugin;
     private FileConfiguration config;
+    private FileConfiguration rewardsConfig;
+    private File rewardsFile;
 
     public ConfigManager(AdventskalenderPlugin plugin) {
         this.plugin = plugin;
         this.config = plugin.getConfig();
+        loadRewardsConfig();
     }
 
     public void reload() {
         plugin.reloadConfig();
         this.config = plugin.getConfig();
+        loadRewardsConfig();
+    }
+
+    private void loadRewardsConfig() {
+        rewardsFile = new File(plugin.getDataFolder(), "rewards.yml");
+        if (!rewardsFile.exists()) {
+            plugin.saveResource("rewards.yml", false);
+        }
+        rewardsConfig = YamlConfiguration.loadConfiguration(rewardsFile);
     }
 
     public String getLanguage() {
@@ -25,7 +39,7 @@ public class ConfigManager {
     }
 
     public String getGUITitle() {
-        return config.getString("gui.title", "&6&lAdventskalender &7&l2024");
+        return config.getString("gui.title", "&6&lAdventskalender &7&l2025");
     }
 
     public int getGUISize() {
@@ -53,7 +67,21 @@ public class ConfigManager {
     }
 
     public List<String> getDoorRewards(int day) {
-        return config.getStringList("doors." + day + ".rewards");
+        // Lade Belohnungen aus rewards.yml
+        List<String> rewards = rewardsConfig.getStringList(day + ".rewards");
+        // Fallback auf config.yml falls rewards.yml leer ist
+        if (rewards.isEmpty()) {
+            rewards = config.getStringList("doors." + day + ".rewards");
+        }
+        return rewards;
+    }
+
+    public int getYear() {
+        return config.getInt("year", 2025);
+    }
+
+    public String getTimezone() {
+        return config.getString("timezone", "Europe/Berlin");
     }
 
     public boolean isDayRestrictionEnabled() {

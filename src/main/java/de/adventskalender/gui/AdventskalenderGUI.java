@@ -12,6 +12,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -158,12 +160,40 @@ public class AdventskalenderGUI {
     }
 
     private int getCurrentDay() {
-        LocalDate now = LocalDate.now();
-        if (now.getMonth() == Month.DECEMBER && now.getDayOfMonth() <= 24) {
-            return now.getDayOfMonth();
+        try {
+            ZoneId zoneId = ZoneId.of(configManager.getTimezone());
+            ZonedDateTime now = ZonedDateTime.now(zoneId);
+            LocalDate localDate = now.toLocalDate();
+            int configuredYear = configManager.getYear();
+            
+            // Prüfe ob wir im richtigen Jahr und Dezember sind
+            if (localDate.getYear() == configuredYear && localDate.getMonth() == Month.DECEMBER && localDate.getDayOfMonth() <= 24) {
+                return localDate.getDayOfMonth();
+            }
+            
+            // Wenn nicht im konfigurierten Jahr/Dezember oder nach dem 24., zeige alle Türen als verfügbar (für Tests)
+            if (configManager.isAllowPastDays()) {
+                return 24;
+            }
+            
+            // Wenn nicht im richtigen Zeitraum, zeige keine Türen als verfügbar
+            return 0;
+        } catch (Exception e) {
+            plugin.getLogger().warning("Fehler beim Laden der Zeitzone: " + configManager.getTimezone() + " - Verwende System-Zeitzone");
+            // Fallback auf System-Zeitzone
+            LocalDate now = LocalDate.now();
+            int configuredYear = configManager.getYear();
+            
+            if (now.getYear() == configuredYear && now.getMonth() == Month.DECEMBER && now.getDayOfMonth() <= 24) {
+                return now.getDayOfMonth();
+            }
+            
+            if (configManager.isAllowPastDays()) {
+                return 24;
+            }
+            
+            return 0;
         }
-        // Wenn nicht im Dezember oder nach dem 24., zeige alle Türen als verfügbar (für Tests)
-        return 24;
     }
 
     public void openDoor(Player player, int day) {
