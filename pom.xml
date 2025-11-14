@@ -67,8 +67,8 @@
             <url>https://jitpack.io</url>
         </repository>
         <repository>
-            <id>nexus</id>
-            <url>https://nexus.hc.to/content/repositories/pub_releases</url>
+            <id>vault-repo</id>
+            <url>http://nexus.hc.to/content/repositories/pub_releases</url>
         </repository>
     </repositories>
 
@@ -81,7 +81,7 @@
         </dependency>
         <dependency>
             <groupId>net.milkbowl.vault</groupId>
-            <artifactId>vault-api</artifactId>
+            <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
             <scope>provided</scope>
         </dependency>
