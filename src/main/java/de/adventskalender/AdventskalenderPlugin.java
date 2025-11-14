@@ -6,7 +6,6 @@ import de.adventskalender.gui.AdventskalenderGUI;
 import de.adventskalender.listeners.GUIListener;
 import de.adventskalender.managers.ConfigManager;
 import de.adventskalender.managers.LanguageManager;
-import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,7 +15,8 @@ public class AdventskalenderPlugin extends JavaPlugin {
     private ConfigManager configManager;
     private LanguageManager languageManager;
     private DatabaseManager databaseManager;
-    private Economy economy;
+    private Object economy; // Object statt Economy für Reflection
+    private boolean vaultEnabled = false;
 
     @Override
     public void onEnable() {
@@ -34,9 +34,14 @@ public class AdventskalenderPlugin extends JavaPlugin {
         databaseManager = new DatabaseManager(this);
         databaseManager.initialize();
         
-        // Vault Economy setup
+        // Vault Economy setup (optional)
         if (getServer().getPluginManager().getPlugin("Vault") != null) {
-            setupEconomy();
+            vaultEnabled = setupEconomy();
+            if (vaultEnabled) {
+                getLogger().info("Vault Economy wurde erfolgreich geladen!");
+            }
+        } else {
+            getLogger().info("Vault wurde nicht gefunden. Economy-Funktionen sind deaktiviert.");
         }
         
         // Commands registrieren
@@ -57,12 +62,18 @@ public class AdventskalenderPlugin extends JavaPlugin {
     }
 
     private boolean setupEconomy() {
-        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
-        if (rsp == null) {
+        try {
+            Class<?> economyClass = Class.forName("net.milkbowl.vault.economy.Economy");
+            RegisteredServiceProvider<?> rsp = getServer().getServicesManager().getRegistration(economyClass);
+            if (rsp == null) {
+                return false;
+            }
+            economy = rsp.getProvider();
+            return economy != null;
+        } catch (ClassNotFoundException e) {
+            getLogger().warning("Vault Economy Klasse nicht gefunden!");
             return false;
         }
-        economy = rsp.getProvider();
-        return economy != null;
     }
 
     public void reload() {
@@ -92,8 +103,12 @@ public class AdventskalenderPlugin extends JavaPlugin {
         return databaseManager;
     }
 
-    public Economy getEconomy() {
+    public Object getEconomy() {
         return economy;
+    }
+
+    public boolean isVaultEnabled() {
+        return vaultEnabled;
     }
 }
 

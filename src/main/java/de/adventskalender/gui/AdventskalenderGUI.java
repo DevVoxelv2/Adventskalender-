@@ -215,12 +215,16 @@ public class AdventskalenderGUI {
                         plugin.getLogger().warning("Fehler beim Geben der Belohnung: " + reward);
                     }
                 }
-            } else if (reward.startsWith("money ") && plugin.getEconomy() != null) {
+            } else if (reward.startsWith("money ") && plugin.isVaultEnabled() && plugin.getEconomy() != null) {
                 try {
                     double amount = Double.parseDouble(reward.substring(6));
-                    plugin.getEconomy().depositPlayer(player, amount);
+                    // Reflection für Vault Economy
+                    Object economy = plugin.getEconomy();
+                    economy.getClass().getMethod("depositPlayer", org.bukkit.OfflinePlayer.class, double.class)
+                            .invoke(economy, player, amount);
                 } catch (Exception e) {
                     plugin.getLogger().warning("Fehler beim Geben von Geld: " + reward);
+                    e.printStackTrace();
                 }
             } else {
                 // Führe als Befehl aus
