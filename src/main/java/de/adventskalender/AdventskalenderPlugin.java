@@ -6,6 +6,7 @@ import de.adventskalender.gui.AdventskalenderGUI;
 import de.adventskalender.listeners.GUIListener;
 import de.adventskalender.managers.ConfigManager;
 import de.adventskalender.managers.LanguageManager;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,7 +16,7 @@ public class AdventskalenderPlugin extends JavaPlugin {
     private ConfigManager configManager;
     private LanguageManager languageManager;
     private DatabaseManager databaseManager;
-    private Object economy; // Object statt Economy für Reflection
+    private Economy economy;
     private boolean vaultEnabled = false;
 
     @Override
@@ -62,18 +63,12 @@ public class AdventskalenderPlugin extends JavaPlugin {
     }
 
     private boolean setupEconomy() {
-        try {
-            Class<?> economyClass = Class.forName("net.milkbowl.vault.economy.Economy");
-            RegisteredServiceProvider<?> rsp = getServer().getServicesManager().getRegistration(economyClass);
-            if (rsp == null) {
-                return false;
-            }
-            economy = rsp.getProvider();
-            return economy != null;
-        } catch (ClassNotFoundException e) {
-            getLogger().warning("Vault Economy Klasse nicht gefunden!");
+        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) {
             return false;
         }
+        economy = rsp.getProvider();
+        return economy != null;
     }
 
     public void reload() {
@@ -103,7 +98,7 @@ public class AdventskalenderPlugin extends JavaPlugin {
         return databaseManager;
     }
 
-    public Object getEconomy() {
+    public Economy getEconomy() {
         return economy;
     }
 
